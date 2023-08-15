@@ -35,6 +35,7 @@
 	<p>Please enter the name of the movie bellow:</p>
 
 	<form class="input-container" on:submit|preventDefault={handleSubmit}>
+		<label for="movieName">Movie</label>
 		<input type="text" id="movieName" bind:value={movieName} required />
 		<button type="submit">Submit</button>
 	</form>
@@ -44,6 +45,8 @@
 	.input-container {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
 	}
 	button,
 	input[type='submit'] {
