@@ -27,7 +27,7 @@
 	<div class="title">{movie.name}</div>
 	<div class="likes">Likes: {internalLikes}</div>
 	<div class="buttons">
-		<button on:click={() => handleLike()}>Like</button>
+		<button on:click={() => handleLike()} aria-label="Like">Like</button>
 	  </div>
 </div>
 
