@@ -1,7 +1,11 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
+	import type { PageData } from "./$types";
+	import Movie from './Movie.svelte';
+
+	export let data: PageData;
+
+	const listMoviesUrl = `${data.url}/movies`
+	const moviesPromise = fetch(listMoviesUrl).then(response => response.json());
 </script>
 
 <svelte:head>
@@ -10,22 +14,17 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+	<h1>Video Store</h1>
 
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+	{#await moviesPromise then movies}
+		<ul>
+			{#each movies as movie}
+				<li>
+					<Movie movie={movie} movieApiUrl={data.url} />
+				</li>
+			{/each}
+		</ul>
+	{/await}
 </section>
 
 <style>

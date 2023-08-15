@@ -1,0 +1,19 @@
+{
+	"name": "@video-store/functions",
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"test": "sst bind vitest",
+		"typecheck": "tsc -noEmit"
+	},
+	"devDependencies": {
+		"@types/aws-lambda": "^8.10.119",
+		"@types/node": "^20.4.8",
+		"sst": "^2.23.13",
+		"vitest": "^0.34.1"
+	},
+	"dependencies": {
+		"aws-sdk": "^2.1436.0",
+		"ulid": "^2.3.0"
+	}
+}
