@@ -8,6 +8,7 @@ export async function handler() {
     // Get the table name from the environment variable
     TableName: Table.Movies.tableName,
     KeyConditionExpression: "pk = :pk",
+    ScanIndexForward: false,
     ExpressionAttributeValues: {
       ":pk": "MOVIE",
     },
