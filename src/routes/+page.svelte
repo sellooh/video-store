@@ -17,9 +17,9 @@
 	<h1>Video Store</h1>
 
 	{#await moviesPromise then movies}
-		<ul>
+		<ul class="movies-list">
 			{#each movies as movie}
-				<li>
+				<li class="movies-item">
 					<Movie movie={movie} movieApiUrl={data.url} />
 				</li>
 			{/each}
@@ -40,19 +40,12 @@
 		width: 100%;
 	}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+	.movies-list {
+		list-style: none;
+		padding: 0;
 	}
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.movies-list .movies-item {
+		margin-bottom: 1rem;
 	}
 </style>

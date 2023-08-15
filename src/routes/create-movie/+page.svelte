@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import type { PageData } from "./$types";
+	import type { PageData } from './$types';
 	export let data: PageData;
 	let movieName = '';
 
-	const createMoviesUrl = `${data.url}/movies`
+	const createMoviesUrl = `${data.url}/movies`;
 	async function handleSubmit() {
 		// Make a POST request with the input value
 		const response = await fetch(createMoviesUrl, {
@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>Create Movie</title>
 	<meta name="description" content="Create Movie" />
 </svelte:head>
 
@@ -34,8 +34,34 @@
 
 	<p>Please enter the name of the movie bellow:</p>
 
-	<form on:submit|preventDefault={handleSubmit}>
+	<form class="input-container" on:submit|preventDefault={handleSubmit}>
 		<input type="text" id="movieName" bind:value={movieName} required />
 		<button type="submit">Submit</button>
 	</form>
 </div>
+
+<style>
+	.input-container {
+		display: flex;
+		justify-content: space-between;
+	}
+	button,
+	input[type='submit'] {
+		cursor: pointer;
+		padding: 10px;
+		border: none;
+		background-color: #007bff;
+		color: white;
+		font-size: 16px;
+		transition: background-color 0.3s;
+	}
+	button:hover,
+	input[type='submit']:hover {
+		background-color: #0056b3;
+	}
+	input[type='text'] {
+		padding: 10px;
+		width: 100%;
+		border: 1px solid #ccc;
+	}
+</style>

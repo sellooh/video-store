@@ -1,5 +1,6 @@
 <script>
 	import Header from './Header.svelte';
+	import github from '$lib/images/github.svg';
 	import './styles.css';
 </script>
 
@@ -11,7 +12,11 @@
 	</main>
 
 	<footer>
-		<p>author <a href="https://www.linkedin.com/in/marcelo-bairros/">linkedin</a></p>
+		<div class="source">
+			<a href="https://github.com/sellooh/video-store">
+				<img src={github} alt="GitHub" />
+			</a>
+		</div>
 	</footer>
 </div>
 
@@ -41,8 +46,23 @@
 		padding: 12px;
 	}
 
-	footer a {
-		font-weight: bold;
+	.source {
+		width: 3em;
+		height: 3em;
+	}
+
+	.source a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	.source img {
+		width: 2em;
+		height: 2em;
+		object-fit: contain;
 	}
 
 	@media (min-width: 480px) {
